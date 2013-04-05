@@ -1,0 +1,33 @@
+/*
+  Place all the styles related to the matching controller here.
+  They will automatically be included in application.css.
+*/
+.authentication{
+	background: #D0D0D0;
+	width: 468px;
+	padding: 10px;
+	margin: 11px 0;
+	border-radius: 4px;
+	-webkit-box-shadow: 0 0 4px #444;
+	display: inline-block;
+	position: relative;
+	border: 1px solid #F0F0F0;
+}
+.remove {
+	position: absolute;
+	right: 5px;
+	top: 5px;
+}
+.authentication-img {
+float: left;
+width: 50px;
+}
+.provider {
+font-size: 40px;
+line-height: 50px;
+color: #333;
+text-shadow: 0 1px white;
+}
+img.icons{
+	width: 15%;
+}

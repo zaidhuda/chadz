@@ -1,0 +1,69 @@
+<%= stylesheet_link_tag  "registrations" %>
+<script type="text/javascript">
+$(document).ready(function(){
+  $(".accordion-toggle").click(function(){
+    var chevron = $(this).children().attr('class');
+    // alert(chevron);
+    if( chevron == "icon-chevron-down")
+      $(this).html("<i class='icon-chevron-up'></i>");
+    if( chevron == "icon-chevron-up")
+      $(this).html("<i class='icon-chevron-down'></i>");
+  });
+});
+</script>
+<div class="container">
+
+  <%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name), :validate => { :presence => true }, :html => { :class => 'form-signin' }) do |f| %>
+
+
+  <h2>Sign in</h2>
+  <% flash.each do |name, msg| %>
+  <%= content_tag :div, msg, :class => "error" if msg.is_a?(String) %>
+  <% end %>
+    <%= f.input :email, :label => false, :input_html => { :class => 'input-block-level', :placeholder => 'Email Address' } %>
+    <%= f.input :password, :label => false, :input_html => { :class => 'input-block-level', :placeholder => 'Password' } %>
+
+  <%= f.submit "Sign in", :class => "btn btn-primary pull-right btn-block"%>
+
+<div class='clearfix'></div>
+    <div class="accordion-heading" style='text-align:center;'>
+      <a class="accordion-toggle muted" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
+        <i class='icon-chevron-down'></i>
+      </a>
+    </div>
+    <div id="collapseOne" class="accordion-body collapse">
+      <div class="accordion-inner">
+    <%= render "devise/shared/links" %>
+
+    <div class="omniouth">
+      <style type="text/css">
+      .span2{
+        width: 40px;
+        height: 15px;
+        padding-top: 5px;
+        margin: 0 10px !important;
+        border-right: 1px solid #ddd;
+        text-align: center;
+      }
+      .btn.btn-large.btn-block {
+        margin-left: 0;
+      }
+      a.btn{
+        text-align: left;
+      }
+      </style>
+      <a href="/auth/twitter" class='btn btn-large btn-info btn-block'>
+        <i class='icon-twitter span2'></i> Sign In with Twitter
+      </a>
+      <a href="/auth/facebook" class='btn btn-large btn-primary btn-block'>
+        <i class='icon-facebook span2 pull-left'></i> Sign In with Facebook
+      </a>
+      <a href="/auth/google_oauth2" class='btn btn-large btn-danger btn-block'>
+        <i class='icon-google-plus span2 pull-left'></i> Sign In with Google
+      </a>
+    </div>
+  </div>
+</div>
+  <% end %>
+
+</div> <!-- /container -->

@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  messagebox: 
+  color: MyString
+  public: false
+  url: MyString
+
+two:
+  messagebox: 
+  color: MyString
+  public: false
+  url: MyString

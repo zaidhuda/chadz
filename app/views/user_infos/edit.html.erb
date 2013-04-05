@@ -1,0 +1,15 @@
+<%= render 'layouts/leftpart' %>
+<div class="page-header">
+  <h1>Edit Profile <small>This is for everybody else</small></h1>
+</div>
+<%= simple_form_for(@user_info, remote: true, :validate => true) do |f| %>
+<%= render partial: 'form', locals: { :f => f } %>
+  <p>
+    <%= f.submit 'Save', :class => 'btn btn-primary pull-right' %>
+  </p>
+  <div class='clearfix'></div>
+<% end %>
+<div class="links">
+  <%= link_to "Back", user_infos_path %>
+</div>
+<%= render 'layouts/rightpart' %>

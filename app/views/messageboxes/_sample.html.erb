@@ -1,0 +1,160 @@
+<div id="sample">
+<style type="text/css">
+#sample ::-webkit-scrollbar-thumb{background-color:#<%= @color.scrollbar_thumb %>}#sample ::-webkit-scrollbar-track-piece{background-color:#<%= @color.scrollbar_background %>}#sample{background:#<%= @color.overall_background %>}#header{border-bottom:1px solid #<%= @color.border_light %>}#messagebox-name{background:#<%= @color.background %>;border-bottom:#<%= @color.topline %> solid 2px}#messagebox-name a{color:#<%= @color.msgbox_name %>}#gif-loader.progress{background:#<%= @color.input_background %>}#message input{background:#<%= @color.input_background %>;border:1px solid #<%= @color.border %>;color:#<%= @color.p %>}#session{background:#<%= @color.overall_background %>}#notice{background:#<%= @color.warning %>}#footer{background:#<%= @color.background %>;border-top:#<%= @color.border_light %> solid 1px}#sample a{color:#<%= @color.link %>}#sample a:hover{color:#<%= @color.link_hover %>}.message:hover{background:#<%= @color.background %>}.message{background:#<%= @color.foreground %>;border-bottom:1px solid #<%= @color.border_light %>}.message p{color:#<%= @color.p %>}#post-it{background:#<%= @color.input %>}#post-it:hover{background:#<%= @color.input_focus %>}#session input:focus{box-shadow:0 0 5px #<%= @color.input %>;-webkit-box-shadow:0 0 5px #<%= @color.input %>;-moz-box-shadow:0 0 5px #<%= @color.input %>;border:1px solid #<%= @color.input_focus %>}.message-left{color:#<%= @color.super %>}.message-right{color:#<%= @color.super %>}a.small-buttons{color:#<%= @color.small_link %>}a.small-buttons:hover{color:#<%= @color.small_link_hover %>}.pagination ul li a{background:#<%= @color.foreground %>}#sample ::-webkit-scrollbar {-webkit-appearance: none;width: 8px;height: 0.8em;}#sample ::-webkit-scrollbar-track-piece, #sample ::-webkit-scrollbar-thumb {border-radius: 1em;}#sample ::-webkit-scrollbar-button {display: none;}#sample ::-webkit-scrollbar-track-piece, #sample ::-webkit-scrollbar-thumb {border-radius: 1em;}#sample{background:#<%= @color.overall_background %>;color:#777;width:100%;height:100%;padding:0;margin:0}#sample,#header,#footer{position:absolute;overflow:hidden}#message{position:relative;height:30px}#messages{padding:0;}#content{position: absolute;}
+  <%= @messagebox_attribute.custom_css %>
+
+</style>
+
+<div id="header">
+  <div id="messagebox-name"><%= current_user.messagebox.name.titleize %></div>
+  <div id="session">
+    <div class="avatar" id="user_avatar" style="background: url(<%= current_user.user_info.avatar %>) no-repeat;"></div>
+    <div class="user_data">
+      <div id="user-data-header">
+        Hi, <b><a href="#" data-remote="true"><%= current_user.user_info.name.titleize %></a></b>!
+        <div id="user-setting">
+          <a href="#" data-remote="true"><i class="icon-cogs" style="font-size:1em"></i></a>
+        </div>
+      </div>
+      <div id="message">
+        <div class="input string required"><input class="string required" id="msginput" maxlength="255" placeholder="Be careful of what you say!" size="50" type="text"></div>
+
+        <div id="notice">
+          <b>Nobody understands that. Seriously...</b>
+        </div>
+
+        <button id="post-it"><i class="icon-bullhorn"></i></button>
+      </div>
+    </div>
+    <div class="clearfix"></div>
+  </div>
+</div>
+
+<div id="content">
+  <div id="messages">
+    <div id="messages-container">
+      <div id="message_1" class="message guest">
+
+        <div class="avatar" style="background: url(http://www.gravatar.com/avatar/7ddf37e9f184b59a0c86c364a073dd34?d=identicon) no-repeat;"></div>
+        <div class="message-inner">
+          <div class="message-header">
+            <b><a href="#" data-remote="true">All Black</a></b>
+            <span class="message-right">
+              just now
+            </span>
+          </div>
+
+          <div class="message-body">
+            <p>This message was sent by an unregistered visitor and is placed inside an element "message" with a class of "guest". You can ban this user by clicking "Ban" below. Red flag means you flagged this message.</p>
+          </div>
+
+          <div class="message-footer">
+            <div class="message-left" style="display: none;">
+              <a href="#" data-remote="true" class="small-buttons"><i class="icon-trash" style="font-size:1em"></i> Delete</a>
+              <a href="#" data-remote="true" class="small-buttons"><i class="icon-fire" style="font-size:1em"></i> Ban</a>
+            </div>
+            <span class="message-right">
+              <span class="count">21</span>
+              <a href="#" data-remote="true"><i class="icon-star" style="font-size:1em"></i></a>
+              <span class="count">1</span>
+              <i class="icon-flag active" style="font-size:1em"></i>
+            </span>
+            <div class="clearfix"></div>
+          </div>
+        </div>
+      </div>
+      <div id="message_2" class="message user">
+
+        <div class="avatar" style="background: url(http://www.gravatar.com/avatar/09f02f3b4b1cb4f802a0f1f90bb4cc15?d=identicon) no-repeat;"></div>
+        <div class="message-inner">
+          <div class="message-header">
+            <b><a href="#" data-remote="true">Red Ruby</a></b>
+            <span class="message-right">
+              30m
+            </span>
+          </div>
+
+          <div class="message-body">
+            <p>This message was sent by a registered visitor and is placed inside an element "message" with a class of "user". This user have been banned. You can allow this user by clicking "Allow" below. Yellow star means you starred this message.</p>
+          </div>
+
+          <div class="message-footer">
+            <div class="message-left" style="display: none;">
+              <a href="#" data-remote="true" class="small-buttons"><i class="icon-ok" style="font-size:1em"></i> Allow</a>
+            </div>
+            <span class="message-right">
+              <span class="count">3</span>
+              <a href="#" data-remote="true"><i class="icon-star active" style="font-size:1em"></i></a>
+              <span class="count">9</span>
+              <a href="#" data-remote="true"><i class="icon-flag" style="font-size:1em"></i></a>
+            </span>
+            <div class="clearfix"></div>
+          </div>
+        </div>
+      </div>
+      <div id="message_3" class="message user admin yours">
+
+        <div class="avatar" style="background: url(<%= current_user.user_info.avatar %>) no-repeat;"></div>
+        <div class="message-inner">
+          <div class="message-header">
+            <b><a href="#" data-remote="true" href="#" data-remote="true"><%= current_user.user_info.name.titleize %></a></b>
+            <span class="message-right">
+              2h
+            </span>
+          </div>
+
+          <div class="message-body">
+            <p>This message belongs to you. You can only delete message from unregistered visitor and yourself. Messages can only be deleted within 1 hour since it was sent.</p>
+          </div>
+
+          <div class="message-footer">
+            <div class="message-left" style="display: none;">
+            </div>
+            <span class="message-right">
+              <span class="count">6</span>
+              <a href="#" data-remote="true"><i class="icon-star" style="font-size:1em"></i></a>
+              <span class="count">1</span>
+              <a href="#" data-remote="true"><i class="icon-flag" style="font-size:1em"></i></a>
+            </span>
+            <div class="clearfix"></div>
+          </div>
+        </div>
+      </div>
+      <div id="message_4" class="message guest">
+
+        <div class="avatar" style="background: url(http://www.gravatar.com/avatar/6ff52211ea78a0525960e93af1c5c16a?d=identicon) no-repeat;"></div>
+        <div class="message-inner">
+          <div class="message-header">
+            <b><a href="#" data-remote="true">Foul</a></b>
+            <span class="message-right">
+              3h
+            </span>
+          </div>
+
+          <div class="message-body">
+            <p>This massage has received too many flags. Click to show.</p>
+          </div>
+
+          <div class="message-footer">
+            <div class="message-left" style="display: none;">
+              <a href="#" data-remote="true" class="small-buttons"><i class="icon-ok" style="font-size:1em"></i> Allow</a>
+            </div>
+            <span class="message-right">
+              <span class="count">1</span>
+              <a href="#" data-remote="true"><i class="icon-star" style="font-size:1em"></i></a>
+              <span class="count">21</span>
+              <a href="#" data-remote="true"><i class="icon-flag" style="font-size:1em"></i></a>
+            </span>
+            <div class="clearfix"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="footer">
+  Powered by <a href="/">Chadz</a>
+</div>
+
+</div>

@@ -1,0 +1,47 @@
+<div id="messagebox-name">
+  <%= link_to @messagebox.name.titleize, @messagebox %><div id="go_top"><i class="icon-chevron-up"></i></div>
+</div>
+<div id="session">
+  <!-- <div class="avatar" style="background: url('/assets/users-icon.png') no-repeat;"> -->
+  <div class="avatar" id="user_avatar" style="background: url(<%= @user.user_info.avatar %>) no-repeat;"></div>
+  <div class="user_data">
+    <% if !banned?(@user, @messagebox) && !ipbanned?(@user, @messagebox)%>
+    <div id="user-data-header">
+      Hi, <b><%= link_to (@info.name.titleize), "/messagebox/profile", :class => 'profile', id: 'user_name', :rel=>'tooltip', :title=>'Profile', :'data-placement'=>"right", remote: true, method: :post %>!</b>
+      <div id="user-setting">
+        <%= link_to icon('cogs'), '/messagebox/settings', :class => 'settings', :rel=>'tooltip', :title=>'Settings', :'data-placement'=>"left", remote: true, method: :post %>
+      </div>
+    </div>
+      <%= simple_form_for(Message.new, :html => { :id => 'message', :class => 'remote'}, :remote => true,:disable_with => "Submitting…") do |f| %>
+          <%= f.hidden_field :messagebox_id , :value => params[:id]%>
+          <%= f.input :content, :label => false, :input_html => { :maxlength => 255, :id => 'msginput' }, :placeholder => "Be careful of what you say!", :disabled => false %>
+        <!-- <div id="post-it"> -->
+        <div id ='gif-loader' class="progress progress-striped active">
+          <div class="bar" style="width: 0%;"></div>
+        </div>
+
+        <div id="notice">
+          <b>Nobody understands that. Seriously...</b>
+        </div>
+
+          <button id='post-it'><i class='icon-bullhorn'></i></button>
+        <!-- </div> -->
+        <div class='clearfix'></div>
+      <% end %>
+    <% else %>
+    <div id="user-data-header" class='muted'>
+      Hi, <b><%= @info.name.titleize %>!</b>
+      <div id="user-setting">
+        <%= icon('cogs') %>
+      </div>
+    </div>
+
+    <form id="message" >
+      <input id="msginput" placeholder="You have been banned!" type="text" disabled='true' style='right:0; border-radius:4px;'/>
+      <div class='clearfix'></div>
+    </form>
+    <% end %>
+    <div class='clearfix'></div>
+  </div>
+  <div class='clearfix'></div>
+</div>

@@ -1,0 +1,5 @@
+<p class='lead'>Create your first and <abbr title="You can create a new one if you delete this one!" class="initialism">ONLY</abbr> messagebox!</p>
+<%= simple_form_for(@messageboxnew, :validate => true) do |f| %>
+    <%= f.input :name, :input_html => { :class => 'input-block-level' } %>
+    <%= f.button :submit, :class => "btn btn-large btn-primary pull-right" %>
+<% end %>

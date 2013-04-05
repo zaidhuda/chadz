@@ -1,0 +1,3 @@
+<% broadcast "/messagebox/"+@messagebox.id.to_s do %>
+$("#message_<%= @message.id %>").remove();
+<% end %>

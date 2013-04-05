@@ -1,0 +1,395 @@
+
+---
+colors:
+  columns:
+  - id
+  - messagebox_attribute_id
+  - topline
+  - msgbox_name
+  - overall_background
+  - background
+  - foreground
+  - link
+  - link_hover
+  - small_link
+  - small_link_hover
+  - input
+  - input_focus
+  - input_background
+  - border
+  - border_light
+  - p
+  - super
+  - warning
+  - scrollbar_thumb
+  - scrollbar_background
+  - created_at
+  - updated_at
+  records: 
+  - - 1
+    - 1
+    - 80BC00
+    - '888888'
+    - FFFFFF
+    - F0F0F0
+    - FFFFFF
+    - 80BC00
+    - 4E8A00
+    - '777777'
+    - '444444'
+    - 80BC00
+    - 80BC00
+    - F0F0F0
+    - DDDDDD
+    - F0F0F0
+    - '555555'
+    - AAAAAA
+    - FF3C46
+    - DDDDDD
+    - '888888'
+    - 2013-02-06 02:26:25.000000000Z
+    - 2013-02-06 02:26:25.000000000Z
+  - - 2
+    - 2
+    - 80BC00
+    - '888888'
+    - FFFFFF
+    - F0F0F0
+    - FFFFFF
+    - 80BC00
+    - 4E8A00
+    - '777777'
+    - '444444'
+    - 80BC00
+    - 80BC00
+    - F0F0F0
+    - DDDDDD
+    - F0F0F0
+    - '555555'
+    - AAAAAA
+    - FF3C46
+    - DDDDDD
+    - '888888'
+    - 2013-02-06 02:28:18.000000000Z
+    - 2013-02-06 02:28:18.000000000Z
+
+---
+messagebox_attributes:
+  columns:
+  - id
+  - messagebox_id
+  - color
+  - custom_css
+  - public
+  - url
+  - created_at
+  - updated_at
+  records: 
+  - - 1
+    - 1
+    - !!null 
+    - !!null 
+    - true
+    - !!null 
+    - 2013-02-06 02:26:12.000000000Z
+    - 2013-02-06 02:26:20.000000000Z
+  - - 2
+    - 2
+    - !!null 
+    - !!null 
+    - false
+    - !!null 
+    - 2013-02-06 02:28:18.000000000Z
+    - 2013-02-06 02:28:18.000000000Z
+
+---
+messageboxes:
+  columns:
+  - id
+  - name
+  - user_id
+  - created_at
+  - updated_at
+  records: 
+  - - 1
+    - Chadz
+    - !!null 
+    - 2013-02-06 02:26:05.000000000Z
+    - 2013-02-06 02:26:05.000000000Z
+  - - 2
+    - Zaid
+    - 1
+    - 2013-02-06 02:28:17.000000000Z
+    - 2013-02-06 02:28:18.000000000Z
+
+---
+messages:
+  columns:
+  - id
+  - content
+  - user_id
+  - messagebox_id
+  - created_at
+  - updated_at
+  records: 
+  - - 1
+    - Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+      incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+      exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+    - 1
+    - 2
+    - 2013-02-06 02:44:31.000000000Z
+    - 2013-02-06 02:44:31.000000000Z
+  - - 2
+    - Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
+      eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt
+      in culpa qui officia deserunt mollit anim id est laborum.
+    - 1
+    - 2
+    - 2013-02-06 02:44:44.000000000Z
+    - 2013-02-06 02:44:44.000000000Z
+
+---
+msg_fav_flags:
+  columns:
+  - id
+  - fav
+  - user_id
+  - message_id
+  - created_at
+  - updated_at
+  records: 
+  - - 1
+    - true
+    - !!null 
+    - 1
+    - 2013-02-06 02:47:38.000000000Z
+    - 2013-02-06 02:47:38.000000000Z
+  - - 2
+    - true
+    - !!null 
+    - 1
+    - 2013-02-06 02:47:41.000000000Z
+    - 2013-02-06 02:47:41.000000000Z
+  - - 3
+    - true
+    - !!null 
+    - 1
+    - 2013-02-06 02:47:41.000000000Z
+    - 2013-02-06 02:47:41.000000000Z
+  - - 4
+    - true
+    - !!null 
+    - 1
+    - 2013-02-06 02:47:42.000000000Z
+    - 2013-02-06 02:47:42.000000000Z
+  - - 5
+    - true
+    - !!null 
+    - 1
+    - 2013-02-06 02:47:42.000000000Z
+    - 2013-02-06 02:47:42.000000000Z
+  - - 6
+    - true
+    - !!null 
+    - 1
+    - 2013-02-06 02:47:43.000000000Z
+    - 2013-02-06 02:47:43.000000000Z
+  - - 7
+    - true
+    - !!null 
+    - 1
+    - 2013-02-06 02:47:43.000000000Z
+    - 2013-02-06 02:47:43.000000000Z
+  - - 8
+    - true
+    - !!null 
+    - 1
+    - 2013-02-06 02:47:43.000000000Z
+    - 2013-02-06 02:47:43.000000000Z
+  - - 9
+    - true
+    - !!null 
+    - 1
+    - 2013-02-06 02:47:44.000000000Z
+    - 2013-02-06 02:47:44.000000000Z
+  - - 10
+    - true
+    - !!null 
+    - 1
+    - 2013-02-06 02:47:44.000000000Z
+    - 2013-02-06 02:47:44.000000000Z
+  - - 11
+    - true
+    - !!null 
+    - 1
+    - 2013-02-06 02:47:44.000000000Z
+    - 2013-02-06 02:47:44.000000000Z
+  - - 12
+    - true
+    - !!null 
+    - 1
+    - 2013-02-06 02:47:45.000000000Z
+    - 2013-02-06 02:47:45.000000000Z
+  - - 13
+    - true
+    - !!null 
+    - 1
+    - 2013-02-06 02:47:45.000000000Z
+    - 2013-02-06 02:47:45.000000000Z
+  - - 14
+    - true
+    - !!null 
+    - 1
+    - 2013-02-06 02:47:45.000000000Z
+    - 2013-02-06 02:47:45.000000000Z
+  - - 15
+    - true
+    - !!null 
+    - 1
+    - 2013-02-06 02:47:46.000000000Z
+    - 2013-02-06 02:47:46.000000000Z
+  - - 16
+    - false
+    - !!null 
+    - 1
+    - 2013-02-06 02:48:14.000000000Z
+    - 2013-02-06 02:48:14.000000000Z
+  - - 17
+    - false
+    - !!null 
+    - 2
+    - 2013-02-06 02:48:31.000000000Z
+    - 2013-02-06 02:48:31.000000000Z
+  - - 18
+    - false
+    - !!null 
+    - 2
+    - 2013-02-06 02:48:32.000000000Z
+    - 2013-02-06 02:48:32.000000000Z
+  - - 19
+    - false
+    - !!null 
+    - 2
+    - 2013-02-06 02:48:33.000000000Z
+    - 2013-02-06 02:48:33.000000000Z
+  - - 20
+    - false
+    - !!null 
+    - 2
+    - 2013-02-06 02:48:33.000000000Z
+    - 2013-02-06 02:48:33.000000000Z
+  - - 21
+    - false
+    - !!null 
+    - 2
+    - 2013-02-06 02:48:34.000000000Z
+    - 2013-02-06 02:48:34.000000000Z
+  - - 22
+    - false
+    - !!null 
+    - 2
+    - 2013-02-06 02:48:34.000000000Z
+    - 2013-02-06 02:48:34.000000000Z
+  - - 23
+    - false
+    - !!null 
+    - 2
+    - 2013-02-06 02:48:34.000000000Z
+    - 2013-02-06 02:48:34.000000000Z
+  - - 24
+    - false
+    - !!null 
+    - 2
+    - 2013-02-06 02:48:35.000000000Z
+    - 2013-02-06 02:48:35.000000000Z
+  - - 25
+    - false
+    - !!null 
+    - 2
+    - 2013-02-06 02:48:35.000000000Z
+    - 2013-02-06 02:48:35.000000000Z
+  - - 26
+    - false
+    - !!null 
+    - 2
+    - 2013-02-06 02:48:35.000000000Z
+    - 2013-02-06 02:48:35.000000000Z
+  - - 32
+    - true
+    - 1
+    - 1
+    - 2013-02-06 02:50:46.000000000Z
+    - 2013-02-06 02:50:46.000000000Z
+  - - 35
+    - true
+    - 1
+    - 2
+    - 2013-02-06 02:50:54.000000000Z
+    - 2013-02-06 02:50:54.000000000Z
+
+---
+user_infos:
+  columns:
+  - id
+  - name
+  - user_name
+  - avatar
+  - user_id
+  - created_at
+  - updated_at
+  records: 
+  - - 1
+    - akuzaid93
+    - akuzaid93
+    - http://www.gravatar.com/avatar/0786655dbb5a13dc35553068d22fe93c?d=identicon
+    - 1
+    - 2013-02-06 02:31:23.000000000Z
+    - 2013-02-06 02:31:23.000000000Z
+
+---
+users:
+  columns:
+  - id
+  - email
+  - guest
+  - encrypted_password
+  - reset_password_token
+  - reset_password_sent_at
+  - remember_created_at
+  - sign_in_count
+  - current_sign_in_at
+  - last_sign_in_at
+  - current_sign_in_ip
+  - last_sign_in_ip
+  - confirmation_token
+  - confirmed_at
+  - confirmation_sent_at
+  - unconfirmed_email
+  - failed_attempts
+  - unlock_token
+  - locked_at
+  - created_at
+  - updated_at
+  records: 
+  - - 1
+    - akuzaid93@yahoo.com
+    - false
+    - $2a$10$QYaONxZJakTxKJj39mVCHu5Z1rDMzgHy7KFd1rNjO.whvCMyigUDG
+    - !!null 
+    - !!null 
+    - !!null 
+    - 1
+    - 2013-02-06 02:28:11.000000000Z
+    - 2013-02-06 02:28:11.000000000Z
+    - 127.0.0.1
+    - 127.0.0.1
+    - hiiG7rTyasgWpTvUAqKa
+    - !!null 
+    - 2013-02-06 02:27:39.000000000Z
+    - !!null 
+    - 0
+    - !!null 
+    - !!null 
+    - 2013-02-06 02:27:39.000000000Z
+    - 2013-02-06 02:28:11.000000000Z

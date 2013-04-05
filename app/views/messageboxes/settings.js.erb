@@ -1,0 +1,9 @@
+$("#messages").hide()
+$("#new-container").html("<%= escape_javascript(render(:partial => 'settings')) %>")
+$("#emoticons").css({"font-size":"2em","cursor":"pointer"})
+$("#emoticons").emoticonize({
+	animate: false
+});
+$(".css-emoticon").click(function(){
+	$("#msginput").val($("#msginput").val()+" "+$(this).html())
+})

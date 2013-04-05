@@ -1,0 +1,20 @@
+<div class="modal-header">
+	<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+	<h3 id="myModalLabel">User Profile</h3>
+</div>
+<div class="modal-body">
+	<%= simple_form_for(@user_info, :validate => true, remote: true) do |f| %>
+		<div class "userform">
+			<%= render partial: 'user_infos/form', locals: { :f => f } %>
+		</div>
+		<div class="userbutton">
+			<%= f.submit 'Save', :class => 'btn btn-primary pull-right' %>
+		</div>
+	<% end %>
+</div>
+<div class="modal-footer">
+<% unless current_user %>
+<%= link_to "Sign up", "#", :id => "sign-up" %>
+<% end %>
+	
+</div>

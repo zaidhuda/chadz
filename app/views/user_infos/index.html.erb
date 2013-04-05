@@ -1,0 +1,39 @@
+<%= render 'layouts/leftpart' %>
+<style type="text/css">
+label{
+    width: 106px;
+}
+</style>
+<div class="page-header">
+  <h1>Profile <small>This is for everybody else</small></h1>
+</div>
+<%= flash[:notice] %>
+<p>
+    <label>Name</label>
+    <input class='input-xlarge uneditable-input input-block-level' disabled="true" value="<%= @user_info.name %>"/>
+</p>
+<% if current_user %>
+<p>
+    <label>Avatar Previews</label>
+    <center>
+        <table  id="avatar_preview">
+        	<tr>
+        		<th style="padding:5px;">
+        			<img width="50px" height="50px" src="<%= @user_info.avatar %>"/>
+        		</th>
+        		<th style="padding:5px;">
+        			<img width="100px" height="100px" src="<%= @user_info.avatar %>"/>
+        		</th>
+        		<th style="padding:5px;">
+        			<img width="150px" height="150px" src="<%= @user_info.avatar %>"/>
+        		</th>
+        	</tr>
+        </table> 
+    </center>   
+</p>
+<% end %>
+<div class="links">
+    <%= link_to 'Edit', '/profile/edit' %>
+    <!-- <td>link_to 'Destroy', @user_info, method: :delete, data: { confirm: 'Are you sure?' }</td> -->
+</div>
+<%= render 'layouts/rightpart' %>

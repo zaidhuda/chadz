@@ -1,0 +1,11 @@
+<% broadcast "/messagebox/"+@messagebox.id.to_s do %>
+$('#messages-container').prepend("<%= escape_javascript(render :partial => 'messages', :locals => { :message => @message }) %>")
+$("#message_<%= @message.id %>").css('background','#DFF0D8');
+$("#message_<%= @message.id %> p").emoticonize({
+	animate: false
+});
+$("#message_<%= @message.id %>").animate({
+      backgroundColor: "#<%= @message.messagebox.messagebox_attribute.color.foreground %>"
+  }, 3000 );
+<% end %>
+$("#message")[0].reset();

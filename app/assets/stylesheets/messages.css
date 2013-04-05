@@ -1,0 +1,86 @@
+/*
+  Place all the styles related to the matching controller here.
+  They will automatically be included in application.css.
+*/
+#messages{
+  background: #666;
+  padding: 5px;
+}
+.avatar {
+  float: left;
+  width: 48px;
+  height: 48px;
+  margin: 3px 6px 0 0;
+  background-size: 48px 48px !important;
+}
+.message{
+  padding: 9px 12px;
+  min-height: 54px;
+  background: white;
+  border-bottom: 1px solid #f1f1f1;
+}
+.message:hover{
+  background: #f5f5f5;
+}
+.message p{
+  margin: 0px;
+}
+.message-inner{
+  margin-left: 60px;
+  position: relative;
+  line-height: 18px !important;
+}
+.message-header{
+  height: 18px;
+}
+.message-body{
+  word-wrap: break-word;
+  font-size: 14px;
+  line-height: 18px;
+}
+.message-footer{
+  position: relative;
+}
+.message-header .message-left{
+  float: none;
+  font-size: 12px;
+}
+.message-left{
+  float: left;
+  font-size: 12px;
+}
+.message-right{
+  float: right;
+  margin-top: 0;
+  font-size: 12px;
+}
+.message-left a{
+  margin-right: 5px;
+}
+.small-buttons {
+  display: inline-block;
+  padding: 0;
+  margin-right: 2px;
+}
+.small-buttons .label {
+  position: absolute;
+  top: 0;
+}
+#content [class^="icon-"] {
+  font-size: 9px;
+}
+[class^="icon-star"],[class^="icon-flag"]{
+  color: lightgrey;
+  font-size: 12px;
+}
+[class^="icon-star"].active{
+  color: orange;
+  font-size: 12px;
+}
+[class^="icon-flag"].active{
+  color: red;
+  font-size: 12px;
+}
+#messages .centered #next_page:hover{
+    background: #f5f5f5;
+}

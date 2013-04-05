@@ -1,0 +1,42 @@
+<%= stylesheet_link_tag  "home" %>
+<style type="text/css">
+body{
+	padding-top: 40px;
+}
+</style>
+<%= render 'layouts/leftpart' %>
+<div class="page-header">
+  <h1>Edit <%= resource_name.to_s.humanize %> <small>This is just for you</small></h1>
+</div>
+
+<%= flash[:notice] %>
+<%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }, :validate => true) do |f| %>
+<p>
+  <%= f.input :email, :input_html => { :class => 'input-block-level' }, :validate => true %>
+</p>
+<div class="span6">
+  <%= f.input :password, :hint => 'leave blank to keep current password.', :input_html => { :class => 'input-block-level' } %>
+  </div>
+  <div class="span6 pull-right">
+  	
+  <%= f.input :password_confirmation, :label => 'Confirmation', :hint => 'retype password to confirm.', :input_html => { :class => 'input-block-level' } %>
+</div>
+<div class='clearfix'></div>
+<p>
+  <%= f.input :current_password, :hint => 'we need your current password to confirm your changes.', :class => "fields", :input_html => { :class => 'input-block-level' } %>
+</p>
+<p>
+  <%= f.button :submit, :label => 'Update', :class => "btn btn-primary pull-right" %>
+</p>
+<% end %>
+<div class='clearfix'></div>
+<br>
+<div class="links">
+
+  <%= link_to "Back", :back %>
+
+  <p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete %>.
+  </p>
+</div>
+<div class='clearfix'></div>
+<%= render 'layouts/rightpart' %>

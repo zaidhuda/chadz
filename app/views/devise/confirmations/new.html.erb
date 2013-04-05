@@ -1,0 +1,17 @@
+<%= stylesheet_link_tag  "registrations" %>
+<div class="container">
+
+
+	<%= simple_form_for(resource, :as => resource_name, :url => confirmation_path(resource_name), :html => { :method => :post }, :validate => { :presence => true }, :html => { :class => 'form-signin' }) do |f| %>
+	<h2>New confirmation link</h2>
+		<%= f.input :email, :label => false, :input_html => { :class => 'input-block-level', :placeholder => 'Email Address' } %>
+		<%= f.submit "Resend confirmation link", :class => 'btn btn-primary pull-right btn-block' %>
+  <div class="clearfix"></div>
+  <br>
+
+		<div class="links">
+			<%= render "devise/shared/links" %>
+		</div>
+		<% end %>
+
+</div> <!-- /container -->

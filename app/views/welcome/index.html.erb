@@ -1,0 +1,52 @@
+
+	<header>
+		<div class="content">
+			<link href='http://fonts.googleapis.com/css?family=La+Belle+Aurore' rel='stylesheet' type='text/css'>
+			<h1 style="font-family: 'La Belle Aurore', cursive;font-size:80px;">Chadz</h1>
+
+			<span id="sign-in"><a href="/users/sign_in">Sign In</a></span>
+		</div>
+	</header>
+	
+	<div id="container">
+		<div id="sign-up" class="rounded">
+			<div id="sign-up-inner">
+				<div id="sign-up-inner2">
+					<h1>Create Your Account</h1>
+
+					<%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :validate => true) do |f| %>
+					<p>
+						<%= f.input :email, :input_html => { :class => 'input-xxlarge input-block-level' } %>
+					</p>
+					<p>
+						<%= f.input :password, :hint => false, :input_html => { :class => 'input-xxlarge input-block-level' } %>
+						<%= f.input :password_confirmation, :label => false, :input_html => { :class => 'input-xxlarge input-block-level' } %>
+					</p>
+					<p>
+						<%= f.button :submit, :value => 'Sign Up!', :class => "btn btn-large btn-primary pull-right" %>
+					</p>
+					<% end %>
+					<div class="clearfix"></div>
+				</div>
+			</div>
+		</div>		
+
+		<div id="msgbox" class="rounded">
+			<div id="right-body">
+				<center>
+					<iframe id="messagebox-preview" src="/messagebox/2"></iframe>
+				</center>
+			</div>
+		</div>
+
+		<div class="clear">
+		</div>
+	</div>
+
+	<footer>
+		<div class="content">
+			Chadz BETA.<br>
+			Designed and Developed by hudadiaz.<br>
+			2013
+		</div>
+	</footer>

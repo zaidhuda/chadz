@@ -1,0 +1,68 @@
+<% msgboxid2 = 0 %>
+<% @messages.each do |message| %>
+  <% if current_page?('/messages') %>
+    <% msgboxid = message.messagebox_id %>
+    <% if msgboxid != msgboxid2 %>
+      <% msgboxid2 = msgboxid %>
+      <h4>At <%= link_to message.messagebox.name, '/messagebox/'+message.messagebox_id.to_s %></h4>
+    <% else %>
+      <% msgboxid2 = message.messagebox_id %>
+    <% end %>
+  <% end %>
+<div id="message_<%= message.id %>" class="message <%= "guest" if message.user.guest? %><%= "user" if !message.user.guest? %><%= " yours" if owner?(message, @user) %>">
+<div class="avatar" style="background: url(<%= message.user.user_info.avatar %>) no-repeat;"></div>
+
+  <div class="message-inner">
+    <div class="message-header">
+      <b>
+        <% if message.user == current_user %>
+          <a href="/connections/<%= message.user.id %>" rel="tooltip" title="View User">Me</a>
+        <% else %>
+          <a href="/connections/<%= message.user.id %>" rel="tooltip" title="View User"><%= message.user.user_info.name.titleize %></a>
+        <% end %>
+      </b>
+      <span class="message-left">
+      <% if message.user.guest? && current_page?('/connections') %>
+        <div class="small-buttons">
+          <span class="label label-warning">Guest</span>
+        </div>
+      <% end %>
+      </span>
+      <span class="message-right">
+        <%= (message.created_at).strftime("%T on %v") %>&nbsp;
+        <% if current_page?('/connections') %>
+          <a href="/connections/<%= message.user.id %>">
+            <span class="badge badge-inverse"><%= message.user.messages.count %></span>
+          </a>
+          <% end %>
+      </span>
+      </span>
+    </div>
+
+    <div class="message-body">
+        <p><%= auto_link(sanitize message.content, :tags => %w(a img), :html => { :target => '_blank' }) %></p>
+    </div>
+
+    <div class="message-footer">
+      <div class="message-left">
+        <% if current_page?('/connections') %>
+          <%= link_to icon("trash")+' Delete All', 'connections/'+message.user.id.to_s, method: :delete, :class => 'del-link remote', confirm: "Delete ALL messages from "+message.user.user_info.name %>
+        <% end %>
+        <% if !owner?(message,current_user) && !banned?(message.user,message.messagebox) && current_page?('/connections') %>
+          <%= link_to icon("fire")+" Ban", "/messagebox/ban/#{message.messagebox_id}/#{message.user.id}", method: :post, :class => 'ban-link remote', remote: true %>
+        <% end %>
+        <% if banned?(message.user,message.messagebox) && current_page?('/connections') %>
+          <%= link_to icon("ok")+" Allow", "/messagebox/unban/#{message.messagebox_id}/#{message.user.id}", method: :post, :class => 'unban-link remote', remote: true %>
+        <% end %>
+      </div>
+      <span class="message-right">
+          <span class="count"><%= (message.msg_fav_flag.where(:fav => true)).count if !(message.msg_fav_flag.where(:fav => true)).count.zero? %></span>
+          <a href="/messages/<%= message.id%>/1" class="fav-link remote" data-method="put" data-remote="true" rel="nofollow"><i class='<%= "icon-star" if !(message.msg_fav_flag.where(:fav => true)).blank? %><%= "icon-star-empty" if (message.msg_fav_flag.where(:fav => true)).blank? %><%= " active" if fav?(@user,message) %>' style='font-size:1em' ></i></a>
+          <span class="count"><%= (message.msg_fav_flag.where(:fav => false)).count if !(message.msg_fav_flag.where(:fav => false)).count.zero? %></span>
+          <a href="/messages/<%= message.id%>/0" class="fav-link remote" data-method="put" data-remote="true" rel="nofollow"><i class='<%= "icon-flag" %><%= " active" if flag?(@user,message) %>' style='font-size:1em' ></i></a>
+      </span>
+      <div class='clearfix'></div>
+    </div>
+  </div>
+</div>
+<% end %>

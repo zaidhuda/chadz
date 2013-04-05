@@ -1,0 +1,13 @@
+<%= render 'layouts/leftpart' %>
+<div class="page-header">
+  <h1>Home <small>Shoud this page really exists?</small></h1>
+</div>
+<div class="span6 pull-left">
+<%= render 'connection/data' unless @messages.blank? %>
+</div>
+<% @messages = @messagesall %>
+<div class="span6 pull-right">
+<%= render 'connection/data' unless @messages.blank?  %>
+</div>
+<div class="clearfix"></div>
+<%= render 'layouts/rightpart' %>

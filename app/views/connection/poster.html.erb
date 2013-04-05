@@ -1,0 +1,65 @@
+<%= render 'layouts/leftpart' %>
+
+<style type="text/css">
+	.actions{
+		margin-top: 20px;
+	}
+	#ban{
+		<%= "display:none;" if !(current_user != @user && !banned?(@user, current_user.messagebox)) %>
+	}
+	#allow{
+		<%= "display:none;" if !banned?(@user, current_user.messagebox) %>
+	}
+	#banip{
+		<%= "display:none;" if !(current_user != @user && !ipbanned?(@user, current_user.messagebox))  %>
+	}
+	#unbanip{
+		<%= "display:none;" if !ipbanned?(@user, current_user.messagebox) %>
+	}
+</style>
+<div class="page-header">
+	<h1>User Messages <small>
+		<% if @user == current_user %>
+		My messages
+		<% else %>
+		<%= @user.user_info.name.titleize %>'s messages for you
+		<% end %>
+	</small></h1>
+</div>
+<div class='container' id="messages">
+	<%= render 'data' %>
+</div>
+<div class='centered'>
+	<% if !current_page?('/') %>
+	<%= link_to_next_page @messages, 'Load More', :remote=>true, :id => 'next_page' %>
+	<% end %>
+</div>
+<% if @messages.count != nil %>
+<br>
+<div class="pull-right">
+	<%= button_to 'Delete All Messages', params[:id].to_s, :method => :delete, :class => "btn pull-right  btn-danger", :id => 'delete', :confirm => "You are about to delete all messages sent by this user to your messagebox.\nThis process is permanent.\nAre you sure?" %>
+</div>
+<div class="pull-right">
+	<%# if current_user != @user && !banned?(@user, current_user.messagebox) %>
+	<%= button_to "Ban User", "/messagebox/ban/#{current_user.messagebox.id}/#{@user.id}", method: :post, :remote => true, :class => "btn pull-right  btn-danger", :form => { :id => 'ban' }, :confirm => "You're about to ban this user from posting any more message.\nAre you sure?" %>
+	<%# end %>
+	<%# if banned?(@user, current_user.messagebox) %>
+	<%= button_to "Allow User", "/messagebox/unban/#{current_user.messagebox.id}/#{@user.id}", method: :post, :remote => true, :form => { :id => 'allow' }, :class => "btn pull-right  btn-primary", :confirm => "You're about to allow this user to post any message in the future.\nAre you sure?" %>
+	<%# end %>
+</div>
+<div class="pull-right">
+	<%# if current_user != @user && !ipbanned?(@user, current_user.messagebox) %>
+	<%= button_to "Ban User IP", "/messagebox/banip/#{current_user.messagebox.id}/#{@user.id}", method: :post, :remote => true, :form => { :id => 'banip' }, :class => "btn pull-right  btn-danger", :confirm => "You're about to ban this user's IP.\nAny user that may use the IP will not be able to post any message.\nAre you sure?" %>
+
+	<%# end %>
+	<%# if ipbanned?(@user, current_user.messagebox) %>
+	<%= button_to "Allow User IP", "/messagebox/unbanip/#{current_user.messagebox.id}/#{@user.id}", method: :post, :remote => true, :form => { :id => 'unbanip' }, :class => "btn pull-right  btn-primary", :confirm => "You're about to allow this user's IP.\nAny user that may use the IP will be able to post any message in the future.\nAre you sure?" %>
+	<%# end %>
+</div>
+<div class="clearfix"></div>
+<br>
+<% end %>
+<div class="links">
+	<%= link_to "Back", connections_path %>
+</div>
+<%= render 'layouts/rightpart' %>

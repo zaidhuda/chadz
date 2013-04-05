@@ -1,0 +1,120 @@
+<style type="text/css">
+
+::-webkit-scrollbar {
+-webkit-appearance: none;
+width: 8px;
+height: 0.8em;
+}
+::-webkit-scrollbar-track-piece, ::-webkit-scrollbar-thumb {
+border-radius: 1em;
+}
+::-webkit-scrollbar-button {
+display: none;
+}
+::-webkit-scrollbar-track-piece, ::-webkit-scrollbar-thumb {
+border-radius: 1em;
+}
+::-webkit-scrollbar-thumb {
+background-color: #<%= @color.scrollbar_thumb %>;
+}
+::-webkit-scrollbar-track-piece {
+background-color: #<%= @color.scrollbar_background %>;
+}
+body{
+  background: #<%= @color.overall_background %> !important;
+  color: #777;
+  width: 100% !important;
+  height: 100%;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+body, #content, #header, #footer {
+  position: absolute;
+  overflow: hidden;
+}
+#header{
+  border-bottom: 1px solid #<%= @color.border_light %>;
+}
+#messagebox-name{
+  padding: 4px;
+  background: #<%= @color.background %>;
+  border-bottom: #<%= @color.topline %> solid 2px;
+}
+#messagebox-name a{
+  color: #<%= @color.msgbox_name %>;
+}
+#gif-loader.progress {
+  background: #<%= @color.input_background %>;
+}
+#message input{
+  background: #<%= @color.input_background %>;
+  border: 1px solid #<%= @color.border %>;
+  color: #<%= @color.p %>;
+}
+#session{
+  background: #<%= @color.overall_background %>;
+}
+#notice{
+  background:#<%= @color.warning %>;
+}
+#content{
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+#messages{
+  background: inherit;
+  padding: 0;
+}
+#footer{
+  background: #<%= @color.background %>;
+  border-top: #<%= @color.border_light %> solid 1px;
+}
+a{
+  color: #<%= @color.link %>;
+  font-weight: bold;
+}
+a:hover{
+  color: #<%= @color.link_hover %>;
+    text-decoration: none;
+}
+.message:hover{
+  background: #<%= @color.background %> !important;
+}
+.message{
+  background: #<%= @color.foreground %>;
+  border-bottom: 1px solid #<%= @color.border_light %>;
+}
+.message p{
+  color: #<%= @color.p %>;
+}
+#post-it{
+  background: #<%= @color.input %>;
+}
+#post-it:hover{
+  background: #<%= @color.input_focus %>;
+}
+#session input:focus {
+  box-shadow: 0 0 5px #<%= @color.input %> !important;
+  -webkit-box-shadow: 0 0 5px #<%= @color.input %> !important; 
+  -moz-box-shadow: 0 0 5px #<%= @color.input %> !important;
+  border: 1px solid #<%= @color.input_focus %> !important;
+  border-right: 0 !important;
+}
+.message-left{
+  color: #<%= @color.super %>;
+}  
+.message-right{
+  color: #<%= @color.super %>;
+}
+.small-buttons a{
+  color: #<%= @color.small_link %>;
+}
+.small-buttons a:hover{
+  color: #<%= @color.small_link_hover %>;
+}
+#messages .centered #next_page:hover{
+    background: #<%= @color.background %>;
+}
+<%= @messagebox_attribute.custom_css %>
+
+</style>

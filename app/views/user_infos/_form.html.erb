@@ -1,0 +1,35 @@
+<p>
+  <%= f.input :name, :hint => 'This name will be used to represent yourself in messageboxes.', :input_html => {:class => 'input-block-level'} %>
+</p>
+<% if current_user %>
+  <%= f.fields_for :user_urls do |g| %>
+<div class="span6 pull-left">
+  <%= g.input :provider, :validate => false, :hint => 'This URL is where users will be redirected to when they clicked your name. (default http://www.chadz.com/).', :hint_html => { :class => 'info'}, :input_html => {:class => 'input-block-level'} %>
+</div>
+<div class="span6 pull-right">
+  <%= g.input :identifier, :validate => false, :hint => 'This URL is where users will be redirected to when they clicked your name. (default http://www.chadz.com/).', :hint_html => { :class => 'info'}, :input_html => {:class => 'input-block-level'} %>
+</div>
+<%= link_to_function "remove", "remove_fields(this)" %>
+<div class="clearfix"></div>
+  <% end %>
+<p>
+  <%= f.input :avatar, :input_html => {:class => 'input-block-level hinted'}, :hint => 'If your photo exists, it will be previewed below.', :hint_html => {:class => 'info'} %>
+</p>
+<center>
+  <p>
+    <table id="avatar_preview" style="display:none;">
+      <tr>
+        <th style="padding:5px;">
+          <img width="50px" height="50px" src=""/>
+        </th>
+        <th style="padding:5px;">
+          <img width="100px" height="100px" src=""/>
+        </th>
+        <th style="padding:5px;">
+          <img width="150px" height="150px" src=""/>
+        </th>
+      </tr>
+    </table>    
+  </p>
+</center>
+<% end %>

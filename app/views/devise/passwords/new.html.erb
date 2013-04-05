@@ -1,0 +1,19 @@
+<%= stylesheet_link_tag  "registrations" %>
+<div class="container">
+
+
+<%= simple_form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post }, :validate => { :presence => true }, :html => { :class => 'form-signin' }) do |f| %>
+  <%= devise_error_messages! %>
+<h2>Reset Password</h2>
+
+    <%= f.input :email, :label => false, :input_html => { :class => 'input-block-level', :placeholder => 'Email Address' } %>
+  	<%= f.submit "Send me reset password link", :class => "btn btn-primary pull-right btn-block" %>
+  <div class="clearfix"></div>
+  <br>
+
+		<div class="links">
+			<%= render "devise/shared/links" %>
+		</div>
+		<% end %>
+
+</div> <!-- /container -->

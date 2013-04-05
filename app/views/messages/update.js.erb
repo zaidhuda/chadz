@@ -1,0 +1,6 @@
+<% broadcast "/messagebox/"+@messagebox.id.to_s do %>
+$("#message_<%= @message.id %>").replaceWith("<%= escape_javascript(render :partial => 'messages', :locals => { :message => @message }) %>")
+$("#message_<%= @message.id %>").emoticonize({
+	animate: false
+});
+<% end %>

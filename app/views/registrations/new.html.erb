@@ -1,0 +1,47 @@
+<%= stylesheet_link_tag  "registrations" %>
+<div class="container">
+
+  <%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :validate => true, :html => { :class => 'form-signin' } ) do |f| %>
+  <h2>Sign up</h2>
+    <%= f.input :email, :label => false, :input_html => { :class => 'input-block-level', :placeholder => 'Email Address' }, :validate => true %>
+    <% if @user.password_required? %>
+    <%= f.input :password, :label => false, :input_html => { :class => 'input-block-level', :placeholder => 'Password' }, :validate => true %>
+    <%= f.input :password_confirmation, :label => false, :input_html => { :class => 'input-block-level', :placeholder => 'Password Confirmation' } %>
+    <% end %>
+    <%= f.submit "Sign Up", :class => "btn btn-primary pull-right btn-block"%>
+<div class='clearfix'></div><br>
+
+  <div class="links">
+    <%= render "devise/shared/links" %>
+  </div>
+
+  <div class="omniouth">
+    <style type="text/css">
+      .span2{
+        width: 40px;
+        height: 15px;
+        padding-top: 5px;
+        margin: 0 10px !important;
+        border-right: 1px solid #ddd;
+        text-align: center;
+      }
+      .btn.btn-large.btn-block {
+        margin-left: 0;
+      }
+      a.btn{
+        text-align: left;
+      }
+      </style>
+      <a href="/auth/twitter" class='btn btn-large btn-info btn-block'>
+        <i class='icon-twitter span2'></i> Sign Up with Twitter
+      </a>
+      <a href="/auth/facebook" class='btn btn-large btn-primary btn-block'>
+        <i class='icon-facebook span2 pull-left'></i> Sign Up with Facebook
+      </a>
+      <a href="/auth/google_oauth2" class='btn btn-large btn-danger btn-block'>
+        <i class='icon-google-plus span2 pull-left'></i> Sign Up with Google
+      </a>
+  </div>
+  <% end %>
+
+</div> <!-- /container -->

@@ -1,0 +1,40 @@
+<%= render 'layouts/leftpart' %>
+<div class="page-header">
+  <h1>Authentications <small>Another way to you</small></h1>
+</div>
+<% if @authentications %>
+  <% unless @authentications.empty? %>
+  <p>
+    <strong>
+      You can sign in to this account using:
+    </strong>
+  </p>
+  <div class="authentications">
+    <% for authentication in @authentications %>
+    <div class="authentication span9">
+      <%= image_tag "#{authentication.provider}.png",:class => "authentication-img" %>
+      <div class="provider">
+        &nbsp;<%= authentication.provider.titleize %>
+      </div>
+      <%= link_to image_tag("x.png", :size => "16x16"), authentication, :confirm => 'Are you sure you want to remove this authentication option?', :method => :delete, :class =>"remove" %>
+    </div>
+    <% end %>
+    <div class="clear">
+    </div>
+  </div>
+  <% end %>
+    <p>
+      <strong>
+        Add another service to sign in with:
+      </strong>
+    </p>
+<% else %>
+    <p>
+      <strong>
+        Sign in through one of these services:
+      </strong>
+    </p>
+<% end %>
+
+<%= render 'icons' %>
+<%= render 'layouts/rightpart' %>

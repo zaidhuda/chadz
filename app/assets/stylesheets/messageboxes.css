@@ -1,0 +1,130 @@
+/*
+  Place all the styles related to the matching controller here.
+  They will automatically be included in application.css.
+*= require messages
+*/
+#header{
+  width: 100% !important;
+  top: 0;
+  right: 0;
+  left: 0;
+  font-size: 14px;
+}
+#notice {
+  background: #FF3C46;
+  color:white;
+  display:none;
+  text-align: center;
+  line-height: 28px;
+  z-index: 4;
+  position: absolute;
+  top: 1px;
+  right: 44px;
+  left: 1px;
+  bottom: 1px;
+  border-radius: 3px 0 0 3px;
+}
+#messagebox-name{
+  padding: 2px 8px !important;
+  font-weight: bold;
+}
+#go_top {
+  position: absolute;
+  top: 0;
+  left: 48.8%;
+  cursor: pointer;
+  display: none;
+}
+#gif-loader.progress {
+  display: none;
+  height: 28px;
+  z-index: 4;
+  position: absolute;
+  top: 1px;
+  right: 44px;
+  left: 1px;
+  bottom: 1px;
+}
+#gif-loader .bar{
+  border-radius: 3px 0 0 3px;
+}
+#session{
+  position: relative;
+  margin: 5px 8px 10px 12px;
+}
+.avatar {
+  float: left;
+  width: 48px;
+  height: 48px;
+  margin: 3px 6px 0 0;
+  background-size: 48px 48px !important;
+}
+.user_data{
+  position: absolute;
+  left: 60px;
+  right: 0;
+}
+#user-data-header {
+  position: relative;
+}
+#user-setting {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+form#message{
+  position: relative;
+  height: 30px;
+  margin: 2px 0 0 0;
+}
+#msginput{
+  position: absolute;
+  border-radius: 4px 0 0 4px;
+  border-right: 0;
+  right: 43px;
+  left: 0px;
+  width: auto;
+}
+#post-it{
+  position: absolute;
+  right: 0;
+  top:0;
+  height: 100%;
+  border: none;
+  border-radius: 0 4px 4px 0;
+  color: white;
+  cursor: pointer;
+  padding: 3px 15px !important;
+}
+#content{
+  left: 0;
+  right: 0;
+  top: 93px;
+  bottom: 21px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  width: 100%;
+}
+#footer{
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: white;
+  padding: 0 4px !important;
+  text-align: right;
+  font-size: 9px;
+}
+.disabled{
+  cursor: default !important;
+}
+.custom-code{
+  font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
+}
+/*.container-fluid.inner-html{
+  width: 96%;
+  margin: 20px auto;
+  padding: 10px;
+}*/
+#myModal .modal-body .hint{
+  display: none;
+}

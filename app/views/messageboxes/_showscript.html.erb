@@ -1,0 +1,140 @@
+<script type="text/javascript">
+<% unless @messagebox_attribute.public? %>
+  if(self==top)
+    document.location.href = "<%= root_path %>500"
+<% end %>
+<% unless @messagebox_attribute.url.blank? %>
+  if(parent.document.domain != '<%= @messagebox_attribute.url %>' && parent.document.domain != 'localhost')
+    document.location.href = "<%= root_path %>500"
+<% end %>
+// alert(parent.document.domain)
+$(document).ready(function(){
+
+  var faye = new Faye.Client('http://localhost:9292/faye');
+  faye.subscribe('/messagebox/<%= @messagebox.id %>', function (data) {
+    eval(data);
+  });
+
+  var $gifLoader = $('#gif-loader');
+  var $msgCont = $('#messages-container');
+  var $msgInput = $("#msginput");
+  var $notIce = $('#notice');
+  var remote = '*[data-remote]';  
+  $('p').emoticonize();  var removeDuplicateID = function(){
+    $('[id]').each(function () {
+      var ids = $('[id=' + this.id + ']');
+      if (ids.length > 1 && ids[0] == this) {
+        $(ids[1]).remove();
+      }
+    });
+  }
+  
+  // var loader = setInterval(function(){Loader();},5000);
+  // $(window).blur(function(){stopLoad();});
+  // $(window).focus(function(){startLoad();});
+  // var stopLoad = function(){clearInterval(loader);loader = 0;}
+  // var startLoad = function(){if(!loader){Loader();loader = setInterval(function(){Loader();},5000);}}
+
+<% if !banned?(@user,@messagebox) %>
+
+  var titleize = function(str){
+    if (str == null) return '';
+    return String(str).replace(/(?:^|\s)\S/g, function(c){ return c.toUpperCase(); });
+  }
+
+  var progressBar = function(Class){
+    // alert(Class);
+    // if(Class == 'profile' || Class == 'settings')
+    //   stopLoad();
+    $gifLoader.fadeIn();
+    var percent = 0;
+    var progress = setInterval(function(){progressIncrease();}, 50);
+
+    var progressIncrease = function(){
+      percent+=10;
+      $gifLoader.children().attr('style','width: '+percent+'%;');
+      if (percent == 100){
+        clearProgress(percent,progress);
+      }
+    }
+
+    var clearProgress = function(percent,progress){
+      $gifLoader.fadeOut(1000);
+      clearInterval(progress);
+      progress = 0;
+      percent = 0;
+      setTimeout(function(){$gifLoader.children().attr('style','width: 0%;');},1000);
+      if(Class == 'simple_form edit_user_info' || Class == 'ban-link remote' || Class == 'unban-link remote'){
+        $("#messages").show()
+        $("#new-container").html("");
+      }
+    }
+  }
+
+  $(this).on('ajax:beforeSend',remote, function() { 
+
+    if($msgInput.val().length < 5 && $(this).attr('class') == 'simple_form remote'){
+      $msgInput.attr("disabled",true); 
+      $notIce.fadeIn(1000);
+      setTimeout(function(){$notIce.fadeOut(1000);$msgInput.attr("disabled",false);},3000);
+      return;
+    }
+
+    else if($(this).attr('class') == 'simple_form remote')
+      $msgInput.attr("disabled",true);
+
+    progressBar($(this).attr('class'));
+
+  }).on('ajax:success',remote, function() {  
+
+    setTimeout(function(){$msgInput.attr("disabled",false);},2000);
+
+    if($(this).attr('class') == 'simple_form edit_user_info'){
+      var name = titleize($('#user_info_name').val());
+      $('#user_name').html(name);
+      var img = $('#user_info_avatar').val();
+      if(<%= !@user.guest ? true : false %>)$('#user_avatar').attr("style","background: url("+img+") no-repeat;");
+    }
+    if($(this).attr('class') == 'del-link remote'){
+      var name = $(this).attr('data-name')
+      if( name == '<%= @user.user_info.name %>' ){
+        var msg = $(this).parent().parent().parent().children('.message-body').children().html();
+        $msgInput.val(msg);
+      }
+    }
+    return;
+
+  }).on('ajax:error',remote, function() {   
+    if($msgInput.val()>4)$msgInput.val("Failed. Reload by clicking Messagebox's name above.");
+    // setTimeout(function(){$msgInput.attr("disabled",false);},2000);
+    return;
+  });
+
+  $(this).on("click","#show_messages",function(){
+    $("#new-container").html("");
+    $("#messages").show()
+  })
+
+<% end %>
+
+  $msgCont.on('mouseover',".message<%= '.yours' if !owner?(@messagebox,@user) %>",function(){
+    $(this).children().children('.message-footer').children('.message-left').show();
+  })
+  $msgCont.on('mouseleave',"div.message<%= '.yours' if !owner?(@messagebox,@user) %>",function(){
+    $(this).children().children('.message-footer').children('.message-left').hide();
+  })
+  $('#content').scroll(function () {
+    if ($(this).scrollTop() > 350) {
+      $('#go_top').fadeIn();
+    } else {
+      $('#go_top').fadeOut();
+    }
+  });
+  $("#go_top").click(function(){
+    $('#content').animate({
+      scrollTop: 0
+    }, 1000);
+    return false;
+  })
+});
+</script>

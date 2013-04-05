@@ -1,0 +1,50 @@
+<%= render 'layouts/leftpart' %>
+<style type="text/css">
+.span6{
+	margin-left: 0 !important;
+}
+.span5.pull-right{
+	margin: 0 2.564102564102564% 0 0;
+}
+</style>
+<div class="page-header">
+	<h1>Customize Messagebox <small>Make it yours!</small></h1>
+</div>
+<%= flash[:notice] %>
+<div class="span9" style="padding:0;margin:0;">
+	<p class="lead">Customize color (press enter and see the change!)</p>
+	<%= render 'color_form' %>
+</div>
+<div class="span9 try pull-right">
+	<div class='span6 pull-left'>
+		<p class="lead">Customize the &lt;iframe&gt;</p>
+		<textarea id='iframe-editor' rows='4' class='input-block-level'>border: 1px solid #bbb; height: 400px; width: 100%;</textarea>
+		<p class="lead">&lt;iframe&gt; code</p>
+		<textarea id='iframe-code' disabled='true' rows='4' class='input-block-level'></textarea>
+		<p class="lead">Privacy Settings</p>
+		<%= simple_form_for(@messagebox_attribute, :html => {:class => 'customize'}, :remote => true) do |f|%>
+			<label class="checkbox">
+			    <%= f.check_box :public  %> Public? <small>viewable on it's own page</small>
+		    </label>
+			<%= f.input :url, :label => false, :input_html => { :class => 'input-block-level', :placeholder => 'Allowed Domain. Leave blank to allow any.' } %>
+			<%= f.button :submit, :value => 'Update', :class => 'btn btn-primary pull-right' %>
+	</div>
+	<div class='span5 pull-right'>
+		<p class="lead">Messagebox Sample</p>
+
+		<div id="messagebox-preview" style="position:relative; height:395px; box-shadow: 0 0 5px 1px #555;"><%= render 'sample' %></div>
+	</div>
+</div>
+<div class="clearfix"></div>
+<div class="span9" style="padding:0;margin:0;">
+	<p class="lead">Know CSS?</p>
+		<%= f.input :custom_css, :input_html => { :class => 'span9', :rows => '10' }  %>
+		<%= f.button :submit, :value => 'Update', :class => 'btn btn-primary pull-right' %>
+	<% end %>
+</div>
+<div class="clearfix"></div>
+<br>
+<div class="links">
+	<%= link_to "Back", :back %>
+</div>
+<%= render 'layouts/rightpart' %>

@@ -1,0 +1,129 @@
+<%= form_for(@color, :validate => true, :html => {:class => 'customize'}, :remote => true) do |f|%>
+<div class="span5">
+	<%= f.label :topline, :class => 'pull-left span6' %>
+	<div class="input-prepend pull-right">				
+		<span class='add-on'>#</span>
+		<%= f.text_field :topline, :class => 'input-mini' %>
+	</div>
+	<div class='clearfix'></div>
+	<%= f.label :msgbox_name, :class => 'pull-left span6' %>
+	<div class="input-prepend pull-right">
+		<span class='add-on'>#</span>
+		<%= f.text_field :msgbox_name, :class => 'input-mini' %>
+	</div>
+	<div class='clearfix'></div>
+	<div class='clearfix'></div>
+	<%= f.label :overall_background, :class => 'pull-left span6' %>
+	<div class="input-prepend pull-right">
+		<span class='add-on'>#</span>
+		<%= f.text_field :overall_background, :class => 'input-mini' %>
+	</div>
+	<div class='clearfix'></div>
+	<%= f.label :background, :class => 'pull-left span6' %>
+	<div class="input-prepend pull-right">
+		<span class='add-on'>#</span>
+		<%= f.text_field :background, :class => 'input-mini' %>
+	</div>
+	<div class='clearfix'></div>
+	<div class='clearfix'></div>
+	<%= f.label :foreground, :class => 'pull-left span6' %>
+	<div class="input-prepend pull-right">
+		<span class='add-on'>#</span>
+		<%= f.text_field :foreground, :class => 'input-mini' %>
+	</div>
+	<div class='clearfix'></div>
+	<%= f.label :link, :class => 'pull-left span6' %>
+	<div class="input-prepend pull-right">
+		<span class='add-on'>#</span>
+		<%= f.text_field :link, :class => 'input-mini' %>
+	</div>
+	<div class='clearfix'></div>
+	<%= f.label :link_hover, :class => 'pull-left span6' %>
+	<div class="input-prepend pull-right">
+		<span class='add-on'>#</span>
+		<%= f.text_field :link_hover, :class => 'input-mini' %>
+	</div>
+	<div class='clearfix'></div>
+	<%= f.label :small_link, :class => 'pull-left span6' %>
+	<div class="input-prepend pull-right">
+		<span class='add-on'>#</span>
+		<%= f.text_field :small_link, :class => 'input-mini' %>
+	</div>
+	<div class='clearfix'></div>
+	<%= f.label :p, :class => 'pull-left span6' %>
+	<div class="input-prepend pull-right">
+		<span class='add-on'>#</span>
+		<%= f.text_field :p, :class => 'input-mini' %>
+	</div>
+	<div class='clearfix'></div>
+	<%= f.label :small_link_hover, :class => 'pull-left span6' %>
+	<div class="input-prepend pull-right">
+		<span class='add-on'>#</span>
+		<%= f.text_field :small_link_hover, :class => 'input-mini' %>
+	</div>
+</div>
+<div class="span5 pull-right">
+	<%= f.label :super, :class => 'pull-left span6' %>
+	<div class="input-prepend pull-right">
+		<span class='add-on'>#</span>
+		<%= f.text_field :super, :class => 'input-mini' %>
+	</div>
+	<div class='clearfix'></div>
+	<%= f.label :input, :class => 'pull-left span6' %>
+	<div class="input-prepend pull-right">
+		<span class='add-on'>#</span>
+		<%= f.text_field :input, :class => 'input-mini' %>
+	</div>
+	<div class='clearfix'></div>
+	<%= f.label :input_focus, :class => 'pull-left span6' %>
+	<div class="input-prepend pull-right">
+		<span class='add-on'>#</span>
+		<%= f.text_field :input_focus, :class => 'input-mini' %>
+	</div>
+	<div class='clearfix'></div>
+	<%= f.label :input_background, :class => 'pull-left span6' %>
+	<div class="input-prepend pull-right">
+		<span class='add-on'>#</span>
+		<%= f.text_field :input_background, :class => 'input-mini' %>
+	</div>
+	<div class='clearfix'></div>
+	<%= f.label :border, :class => 'pull-left span6' %>
+	<div class="input-prepend pull-right">
+		<span class='add-on'>#</span>
+		<%= f.text_field :border, :class => 'input-mini' %>
+	</div>
+	<div class='clearfix'></div>
+	<%= f.label :border_light, :class => 'pull-left span6' %>
+	<div class="input-prepend pull-right">
+		<span class='add-on'>#</span>
+		<%= f.text_field :border_light, :class => 'input-mini' %>
+	</div>
+	<div class='clearfix'></div>
+	<%= f.label :warning, :class => 'pull-left span6' %>
+	<div class="input-prepend pull-right">
+		<span class='add-on'>#</span>
+		<%= f.text_field :warning, :class => 'input-mini' %>
+	</div>
+	<div class='clearfix'></div>
+	<%= f.label :scrollbar_thumb, :class => 'pull-left span6' %>
+	<div class="input-prepend pull-right">
+		<span class='add-on'>#</span>
+		<%= f.text_field :scrollbar_thumb, :class => 'input-mini' %>
+	</div>
+	<div class='clearfix'></div>
+	<%= f.label :scrollbar_background, :class => 'pull-left span6' %>
+	<div class="input-prepend pull-right">
+		<span class='add-on'>#</span>
+		<%= f.text_field :scrollbar_background, :class => 'input-mini' %>
+	</div>
+	<div class='clearfix' style='margin-bottom:5px;'></div>
+	<%= f.button 'Update', :class => 'btn color_change btn-primary pull-right' %>
+	<%= f.button '', :id => '0', :class => 'btn color_change btn-success pull-right' %>
+	<%= f.button '', :id => '1', :class => 'btn color_change btn-danger pull-right' %>
+	<%= f.button '', :id => '2', :class => 'btn color_change btn-info pull-right' %>
+	<%= f.button '', :id => '3', :class => 'btn color_change btn-warning pull-right' %>
+	<%= f.button '', :id => '4', :class => 'btn color_change btn-inverse pull-right' %>
+	<%= f.button '', :id => '5', :class => 'btn color_change pull-right' %>
+	<%= f.button icon('refresh'), :id => '6', :class => 'btn color_change pull-right' %>
+</div>
+<% end %>

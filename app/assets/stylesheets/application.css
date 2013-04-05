@@ -1,0 +1,104 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require bootstrap_and_overrides
+ *= require_self
+ *= require jquery.cssemoticons
+ */
+html{
+    font-family: "Helvetica Neue", Arial, sans-serif;
+}
+body{
+    background: url("/assets/random_grey_variations.png");
+    color: #555;
+}
+a,input,#sign-in,.guest{
+    outline:none;
+    transition: all 0.25s ease-in-out;
+    -webkit-transition: all 0.25s ease-in-out;
+    -moz-transition: all 0.25s ease-in-out;
+}
+/*input:focus {
+    box-shadow: 0 0 5px #1D6EFF;
+    -webkit-box-shadow: 0 0 5px #1D6EFF; 
+    -moz-box-shadow: 0 0 5px #1D6EFF; 
+    border:1px solid #1D6EFF;
+}*/
+h1,h2,h3,h4,h5,h6,strong{
+    text-shadow: 1px 1px 2px white;
+}
+#messages h1,h2,h3,h4,h5,h6,strong{
+    text-shadow:1px 1px 0px #111;
+}
+.omniouth {
+    text-align: center;
+    border-top: 2px dashed #999;
+    margin-top: 20px;
+    padding-top: 15px;
+}
+.error {
+    background: #FFC1BD;
+    margin:  -6px 0 4px;
+    padding: 4px 12px;
+    display: block;
+    font-size: 13px;
+    border-radius: 5px;
+    color: #555;
+}
+.error:before{
+    content: "Review: ";
+}
+.hint {
+    margin: -12px 0 8px;
+    padding: 4px 12px;
+    display: block;
+    font-size: 13px;
+    border-radius: 0 0 5px 5px;
+    background: #C1DEF8;
+    color: #555;
+}
+.actions{
+    padding: 10px;
+    border: none;
+    color: white;
+    background: #2664CD;
+    /*background: #5896FF;*/
+    border-radius: 5px;
+    cursor: pointer;
+    float:right;
+    position: relative;
+    margin-left: 5px;
+}
+.actions:hover{ 
+    background: #012D77;
+}
+.warning:hover {
+    background: #9B0000 !important;
+}
+.warning {
+    background: #CD2217!important;
+}
+.links{
+    border-top: dashed 2px #999;
+    padding: 20px 0 0;
+}
+.centered{
+    text-align: center;
+}
+#messages .centered #next_page {
+    line-height: 30px;
+    display: block;
+}
+.modal-body{
+    word-wrap: break-word;
+}
+.span6.pull-left{
+    margin-left: 0;
+}

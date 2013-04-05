@@ -1,0 +1,2 @@
+$('#messages').append("<%= escape_javascript(render :partial => 'connection/data') %>");
+$('#next_page').html("<%= escape_javascript(link_to_next_page @messages, 'Load More', :remote=>true, :id => 'next_page') %>");

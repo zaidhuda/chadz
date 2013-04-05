@@ -1,0 +1,31 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  messagebox_attribute: 
+  link: 1
+  link_hover: 1
+  link_visited: 1
+  background: 1
+  foreground: 1
+  effects: 1
+  light: 1
+  dark: 1
+  p: 1
+  special: 1
+  small: 1
+  warning: 
+
+two:
+  messagebox_attribute: 
+  link: 1
+  link_hover: 1
+  link_visited: 1
+  background: 1
+  foreground: 1
+  effects: 1
+  light: 1
+  dark: 1
+  p: 1
+  special: 1
+  small: 1
+  warning: 
